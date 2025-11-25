@@ -125,13 +125,13 @@ $(function() {
       _isMuted = true;
 
       // Set the muted class
-      $(this).find('i').removeClass('fa-volume-high').addClass('fa-volume-xmark');
+      $(this).find('i, svg').removeClass('fa-volume-high').addClass('fa-volume-xmark');
     } else {
       // Reset the muted state
       _isMuted = false;
 
       // Reset the muted class
-      $(this).find('i').removeClass('fa-volume-xmark').addClass('fa-volume-high');
+      $(this).find('i, svg').removeClass('fa-volume-xmark').addClass('fa-volume-high');
     }
 
     // Mute or unmute the audio assets
@@ -147,13 +147,13 @@ $(function() {
       document.body.requestFullscreen();
 
       // Set the full screen class
-      $(this).find('i').removeClass('fa-expand').addClass('fa-compress');
+      $(this).find('i, svg').removeClass('fa-expand').addClass('fa-compress');
     } else {
       // Exit the full screen
       document.exitFullscreen();
 
       // Reset the full screen class
-      $(this).find('i').removeClass('fa-compress').addClass('fa-expand');
+      $(this).find('i, svg').removeClass('fa-compress').addClass('fa-expand');
     }
   })
 });
