@@ -1,0 +1,45 @@
+// Import frameworks
+@use 'bulma';
+
+
+// Hero layout
+.hero {
+  color: var(--bulma-white);
+  background-color: var(--bulma-dark);
+  
+  // Justify everything to the center
+  .hero-body, .navbar, .navbar-brand {
+    justify-content: center;
+  }
+}
+
+
+// Buzzer styling
+#buzzer {
+  flex-direction: column;
+  cursor: pointer;
+  
+  -webkit-tap-highlight-color: transparent;
+
+  // Buzzer container styling
+  #buzzer-container {
+    widtH: 10rem;
+    height: 10rem;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Probability styling
+  #probability {
+    color: var(--bulma-white);
+  }
+}
+
+// Confetti styling
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+}

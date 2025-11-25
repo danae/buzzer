@@ -1,0 +1,17 @@
+// Custom colors
+$color-white: #F6E8EA;
+$color-dark: #22181C;
+$color-green: #68A691;
+$color-red: #D80032;
+
+// Import the Bulma framework
+@use 'bulma/sass' with (
+  // Custom fonts and colors
+  $white: $color-white,
+  $dark: $color-dark,
+  $green: $color-green,
+  $red: $color-red,
+
+  // Other variables
+  $navbar-height: 2.75rem,
+);

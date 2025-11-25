@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "name": "@danae/buzzer",
+  "version": "0.1.0",
+  "description": "Simple buzzer site wth a pity system",
+  "author": "Danae Dekker <hello@danaedekker.com>",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danae/buzzer.git"
+  },
+  "homepage": "https://buzzer.danae.dev/",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@fortawesome/fontawesome-free": "~7.1.0",
+    "bulma": "~1.0.4",
+    "esbuild": "~0.27.0",
+    "jquery": "~3.7.1",
+    "sass": "~1.94.2"
+  }
+}

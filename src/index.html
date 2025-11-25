@@ -1,0 +1,66 @@
+---
+title: Buzzer
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    <title>{{ title }}</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- Scripts -->
+    <script src="/js/index.js"></script>
+  </head>
+
+  <body>
+    <!-- Hero -->
+    <section class="hero is-fullheight" id="hero">
+      <!-- Buzzer -->
+      <div class="hero-body" id="buzzer">
+        <div id="buzzer-container">
+          <span class="icon has-text-light">
+            <i class="fa-10x fa-solid fa-land-mine-on" id="buzzer-icon"></i>
+          </span>
+        </div>
+
+        <p id="probability" class="mt-5"></p>
+      </div>
+
+      <!-- Navbar -->
+      <div class="hero-foot">
+        <nav class="navbar is-dark" id="navbar">
+          <div class="navbar-brand">
+            <a class="navbar-item" id="mute">
+              <span class="icon has-text-light">
+                <i class="fa-solid fa-volume-high fa-fw"></i>
+              </span>
+            </a>
+
+            <a class="navbar-item" id="fullscreen">
+              <span class="icon has-text-light">
+                <i class="fa-solid fa-expand fa-fw"></i>
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Audio assets -->
+    <audio id="correctAudio">
+      <source src="/assets/sounds/correct.mp3" type="audio/mpeg">
+      <source src="/assets/sounds/correct.ogg" type="audio/ogg">
+    </audio>
+
+    <audio id="wrongAudio">
+      <source src="/assets/sounds/wrong.mp3" type="audio/mpeg">
+      <source src="/assets/sounds/wrong.ogg" type="audio/ogg">
+    </audio>
+  </body>
+</html>
