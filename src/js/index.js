@@ -35,7 +35,6 @@ function increaseProbability() {
   _currentProbability = Math.max(1, _currentProbability - 1);
 }
 
-
 // Update the probability display
 function updateProbabilityDisplay() {
   const steps = probability / 2;
@@ -49,7 +48,6 @@ function updateProbabilityDisplay() {
   for (let i = 0; i < steps; i ++)
     container.append($('<i>').addClass(probabilityIcons[i < full ? 2 : i === full && hasHalf ? 1 : 0]));
 }
-
 
 // Event handler when the document is loaded
 $(function() {
