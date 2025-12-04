@@ -6,13 +6,14 @@ require('@fortawesome/fontawesome-free/js/all.js');
 
 
 // The probability to have a correct buzzer (1 out of n)
-const probability = 16;
+const probability = 18;
 
 // The icons to use for the buzzer
 const buzzerIcon = 'fa-solid fa-land-mine-on';
 const correctIcon = 'fa-solid fa-gift fa-beat';
 const wrongIcon = 'fa-solid fa-sack-xmark fa-shake';
-const probabilityIcons = ['fa-regular fa-circle', 'fa-solid fa-circle-half-stroke', 'fa-solid fa-circle'];
+const guaranteedIcon = 'fa-solid fa-gift'
+const diceIcons = ['fa-solid fa-square', 'fa-solid fa-dice-one', 'fa-solid fa-dice-two', 'fa-solid fa-dice-three', 'fa-solid fa-dice-four', 'fa-solid fa-dice-five', 'fa-solid fa-dice-six'];
 
 // The duration to hold the buzzed state (milliseconds)
 const holdCorrectDuration = 4500;
@@ -37,16 +38,17 @@ function increaseProbability() {
 
 // Update the probability display
 function updateProbabilityDisplay() {
-  const steps = probability / 2;
-  const exact = (probability - _currentProbability) * (steps / probability);
-  const full = Math.floor(exact);
-  const hasHalf = exact % 1 !== 0;
+  const dices = Math.ceil(probability / 6);
 
   const container = $('#probability');
   container.html('');
 
-  for (let i = 0; i < steps; i ++)
-    container.append($('<i>').addClass(probabilityIcons[i < full ? 2 : i === full && hasHalf ? 1 : 0]));
+  container.append($('<i>').addClass('fa-solid fa-dice-one'));
+  container.append($('<i>').addClass('fa-solid fa-divide'));
+  for (let i = 0; i < dices; i++) {
+    const value = Math.min(6, Math.max(0, _currentProbability - i * 6));
+    container.append($('<i>').addClass(diceIcons[value]));
+  }
 }
 
 // Event handler when the document is loaded
@@ -56,7 +58,7 @@ $(function() {
   const wrongAudio = document.querySelector('#wrongAudio');
 
   // Set the buzzer class
-  $('#buzzer-icon').addClass(buzzerIcon);
+  $('#buzzer-icon').addClass(_currentProbability > 1 ? buzzerIcon : guaranteedIcon);
   
   // Update the probability display
   updateProbabilityDisplay();
@@ -100,14 +102,12 @@ $(function() {
       increaseProbability();
     }
 
-    console.log(_currentProbability);
-
     // Reset the buzzed state after the specified duration
     setTimeout(function() {
       // Reset the correct and wrong class
       $('#hero').removeClass('is-success is-danger');
       $('#navbar').removeClass('is-success is-danger');
-      $('#buzzer-icon').removeClass(correctIcon).removeClass(wrongIcon).addClass(buzzerIcon);
+      $('#buzzer-icon').removeClass(correctIcon).removeClass(wrongIcon).addClass(_currentProbability > 1 ? buzzerIcon : guaranteedIcon);
 
       // Update the probability display
       updateProbabilityDisplay();
